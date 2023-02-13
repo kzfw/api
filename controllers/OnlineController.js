@@ -61,7 +61,7 @@ const positions = {
 	/*OKC_GND: 'Roger Ground',
 	OKC_DEL: 'Rogers Delivery',
 	OKC_TWR: 'Rogers Tower',
-	OKC_APP: 'Oke City Approach',
+	OKC_APP: 'Oke Approach',
 	OKC_DEP: 'Oke City Departure'*/
 };
 
