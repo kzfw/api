@@ -44,12 +44,12 @@
   "facility": "app"
 },{
   "name": "Major Approach",
-  "code": "dfwapp",
+  "code": "regapp",
   "order": 8,
   "class": "major",
   "facility": "app"
 },{
-  "name": "Chicago Center",
+  "name": "Fort Worth Center",
   "code": "zfw",
   "order": 9,
   "class": "center",
