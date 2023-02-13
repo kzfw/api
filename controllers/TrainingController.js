@@ -91,12 +91,12 @@ router.post('/request/new', getUser, async (req, res) => {
 		const milestone = await TrainingMilestone.findOne({code: req.body.milestone}).lean();
 
 		transporter.sendMail({
-			to: 'training@zauartcc.org',
+			to: 'training@zfwartcc.net',
 			from: {
-				name: "Chicago ARTCC",
-				address: 'no-reply@zauartcc.org'
+				name: "Fort Worth ARTCC",
+				address: 'no-reply@zfwartcc.net'
 			},
-			subject: `New Training Request: ${student.fname} ${student.lname} | Chicago ARTCC`,
+			subject: `New Training Request: ${student.fname} ${student.lname} | Fort Worth`,
 			template: 'newRequest',
 			context: {
 				student: student.fname + ' ' + student.lname,
@@ -186,10 +186,10 @@ router.post('/request/take/:id', getUser, auth(['atm', 'datm', 'ta', 'ins', 'mtr
 		transporter.sendMail({
 			to: `${student.email}, ${instructor.email}`,
 			from: {
-				name: "Chicago ARTCC",
-				address: 'no-reply@zauartcc.org'
+				name: "Fort Worth ARTCC",
+				address: 'no-reply@zfwartcc.net'
 			},
-			subject: 'Training Request Taken | Chicago ARTCC',
+			subject: 'Training Request Taken | Fort Worth ARTCC',
 			template: 'requestTaken',
 			context: {
 				student: student.fname + ' ' + student.lname,

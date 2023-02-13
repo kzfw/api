@@ -497,22 +497,22 @@ router.post('/visit', getUser, async (req, res) => {
 		await transporter.sendMail({
 			to: req.body.email,
 			from: {
-				name: "Chicago ARTCC",
-				address: 'no-reply@zauartcc.org'
+				name: "Fort Worth ARTCC",
+				address: 'no-reply@zfwartcc.net'
 			},
-			subject: `Visiting Application Received | Chicago ARTCC`,
+			subject: `Visiting Application Received | Fort Worth ARTCC`,
 			template: 'visitReceived',
 			context: {
 				name: `${res.user.fname} ${res.user.lname}`,
 			}
 		});
 		await transporter.sendMail({
-			to: 'atm@zauartcc.org, datm@zauartcc.org',
+			to: 'atm@zfwartcc.net, datm@zfwartcc.net',
 			from: {
-				name: "Chicago ARTCC",
-				address: 'no-reply@zauartcc.org'
+				name: "Fort Worth ARTCC",
+				address: 'no-reply@zfwartcc.net'
 			},
-			subject: `New Visiting Application: ${res.user.fname} ${res.user.lname} | Chicago ARTCC`,
+			subject: `New Visiting Application: ${res.user.fname} ${res.user.lname} | Fort Worth ARTCC`,
 			template: 'staffNewVisit',
 			context: {
 				user: userData
@@ -559,15 +559,15 @@ router.put('/visit/:cid', getUser, auth(['atm', 'datm']), async (req, res) => {
 
 		await user.save();
 
-		await axios.post(`https://api.vatusa.net/v2/facility/ZAU/roster/manageVisitor/${req.params.cid}?apikey=${process.env.VATUSA_API_KEY}`)
+		await axios.post(`https://api.vatusa.net/v2/facility/ZFW/roster/manageVisitor/${req.params.cid}?apikey=${process.env.VATUSA_API_KEY}`)
 
 		await transporter.sendMail({
 			to: user.email,
 			from: {
-				name: "Chicago ARTCC",
-				address: 'no-reply@zauartcc.org'
+				name: "Fort Worth ARTCC",
+				address: 'no-reply@zfwartcc.net'
 			},
-			subject: `Visiting Application Accepted | Chicago ARTCC`,
+			subject: `Visiting Application Accepted | Fort Worth ARTCC`,
 			template: 'visitAccepted',
 			context: {
 				name: `${user.fname} ${user.lname}`,
@@ -598,10 +598,10 @@ router.delete('/visit/:cid', getUser, auth(['atm', 'datm']), async (req, res) =>
 		await transporter.sendMail({
 			to: user.email,
 			from: {
-				name: "Chicago ARTCC",
-				address: 'no-reply@zauartcc.org'
+				name: "Fort Worth ARTCC",
+				address: 'no-reply@zfwartcc.net'
 			},
-			subject: `Visiting Application Rejected | Chicago ARTCC`,
+			subject: `Visiting Application Rejected | Fort Worth ARTCC`,
 			template: 'visitRejected',
 			context: {
 				name: `${user.fname} ${user.lname}`,
@@ -661,12 +661,12 @@ router.post('/:cid', microAuth, async (req, res) => {
 		const ratings = ['Unknown', 'OBS', 'S1', 'S2', 'S3', 'C1', 'C2', 'C3', 'I1', 'I2', 'I3', 'SUP', 'ADM'];
 
 		await transporter.sendMail({
-			to: 'atm@zauartcc.org, datm@zauartcc.org, ta@zauartcc.org',
+			to: 'atm@zfwartcc.net, datm@zfwartcc.net, ta@zfwartcc.net',
 			from: {
-				name: "Chicago ARTCC",
-				address: 'no-reply@zauartcc.org'
+				name: "Fort Worth ARTCC",
+				address: 'no-reply@zfwartcc.net'
 			},
-			subject: `New ${req.body.vis ? 'Visitor' : 'Member'}: ${req.body.fname} ${req.body.lname} | Chicago ARTCC`,
+			subject: `New ${req.body.vis ? 'Visitor' : 'Member'}: ${req.body.fname} ${req.body.lname} | Fort Worth ARTCC`,
 			template: 'newController',
 			context: {
 				name: `${req.body.fname} ${req.body.lname}`,
@@ -675,7 +675,7 @@ router.post('/:cid', microAuth, async (req, res) => {
 				rating: ratings[req.body.rating],
 				vis: req.body.vis,
 				type: req.body.vis ? 'visitor' : 'member',
-				home: req.body.vis ? req.body.homeFacility : 'ZAU'
+				home: req.body.vis ? req.body.homeFacility : 'ZFW'
 			}
 		});
 
@@ -714,12 +714,12 @@ router.put('/:cid/member', microAuth, async (req, res) => {
 		const ratings = ['Unknown', 'OBS', 'S1', 'S2', 'S3', 'C1', 'C2', 'C3', 'I1', 'I2', 'I3', 'SUP', 'ADM'];
 		if(req.body.member){
 		await transporter.sendMail({
-			to: 'atm@zauartcc.org, datm@zauartcc.org, ta@zauartcc.org',
+			to: 'atm@zfwartcc.net, datm@zfwartcc.net, ta@zfwartcc.net',
 			from: {
-				name: "Chicago ARTCC",
-				address: 'no-reply@zauartcc.org'
+				name: "Fort Worth ARTCC",
+				address: 'no-reply@zfwartcc.net'
 			},
-			subject: `New ${user.vis ? 'Visitor' : 'Member'}: ${user.fname} ${user.lname} | Chicago ARTCC`,
+			subject: `New ${user.vis ? 'Visitor' : 'Member'}: ${user.fname} ${user.lname} | Fort Worth ARTCC`,
 			template: 'newController',
 			context: {
 				name: `${user.fname} ${user.lname}`,
@@ -734,12 +734,12 @@ router.put('/:cid/member', microAuth, async (req, res) => {
 		}
 		if(req.body.vis){
 		await transporter.sendMail({
-			to: 'atm@zauartcc.org, datm@zauartcc.org, ta@zauartcc.org',
+			to: 'atm@zfwartcc.net, datm@zfwartcc.net, ta@zfwartcc.net',
 			from: {
-				name: "Chicago ARTCC",
-				address: 'no-reply@zauartcc.org'
+				name: "Fort Worth ARTCC",
+				address: 'no-reply@zfwartcc.net'
 			},
-			subject: `New ${user.vis ? 'Visitor' : 'Member'}: ${user.fname} ${user.lname} | Chicago ARTCC`,
+			subject: `New ${user.vis ? 'Visitor' : 'Member'}: ${user.fname} ${user.lname} | Fort Worth ARTCC`,
 			template: 'newController',
 			context: {
 				name: `${user.fname} ${user.lname}`,
@@ -873,7 +873,7 @@ router.delete('/:cid', getUser, auth(['atm', 'datm']), async (req, res) => {
 		});
 
 		if(user.vis) {
-			await axios.delete(`https://api.vatusa.net/v2/facility/ZAU/roster/manageVisitor/${req.params.cid}`, {
+			await axios.delete(`https://api.vatusa.net/v2/facility/ZFW/roster/manageVisitor/${req.params.cid}`, {
 				params: {
 					apikey: process.env.VATUSA_API_KEY,
 				},
@@ -883,7 +883,7 @@ router.delete('/:cid', getUser, auth(['atm', 'datm']), async (req, res) => {
 				}
 			});
 		} else {
-			await axios.delete(`https://api.vatusa.net/v2/facility/ZAU/roster/${req.params.cid}`, {
+			await axios.delete(`https://api.vatusa.net/v2/facility/ZFW/roster/${req.params.cid}`, {
 				params: {
 					apikey: process.env.VATUSA_API_KEY,
 				},

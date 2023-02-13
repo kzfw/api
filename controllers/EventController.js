@@ -120,7 +120,7 @@ router.put('/:slug/signup', getUser, async (req, res) => {
 		if(res.user.member === false) {
 			throw {
 				code: 403,
-				message: "You must be a member of ZAU"
+				message: "You must be a member of ZFW"
 			}
 		}
 
@@ -264,7 +264,7 @@ router.post('/', getUser, auth(['atm', 'datm', 'ec', 'wm']), upload.single('bann
 		const tmpFile = await fs.readFile(req.file.path);
 
 		await req.app.s3.putObject({
-			Bucket: 'zauartcc/events',
+			Bucket: 'zfwartcc/events',
 			Key: req.file.filename,
 			Body: tmpFile,
 			ContentType: req.file.mimetype,
@@ -316,28 +316,28 @@ router.put('/:slug', getUser, auth(['atm', 'datm', 'ec', 'wm']), upload.single('
 				computedPositions.push({
 					pos,
 					type: thePos[2],
-					code: 'zau',
+					code: 'zfw',
 				})
 			}
 			if(['APP', 'DEP'].includes(thePos[2])) {
 				computedPositions.push({
 					pos,
 					type: thePos[2],
-					code: (thePos[1] === "ORD") ? 'ordapp' : 'app',
+					code: (thePos[1] === "REG") ? 'regapp' : 'app',
 				})
 			}
 			if(['TWR'].includes(thePos[2])) {
 				computedPositions.push({
 					pos,
 					type: thePos[2],
-					code: (thePos[1] === "ORD") ? 'ordtwr' : 'twr',
+					code: (thePos[1] === "DFW") ? 'dfwtwr' : 'twr',
 				})
 			}
 			if(['GND', 'DEL'].includes(thePos[2])) {
 				computedPositions.push({
 					pos,
 					type: thePos[2],
-					code: (thePos[1] === "ORD") ? 'ordgnd' : 'gnd',
+					code: (thePos[1] === "DFW") ? 'dfwgnd' : 'gnd',
 				})
 			}
 		}
@@ -382,7 +382,7 @@ router.put('/:slug', getUser, auth(['atm', 'datm', 'ec', 'wm']), upload.single('
 			}
 			const tmpFile = await fs.readFile(req.file.path);
 			await req.app.s3.putObject({
-				Bucket: 'zauartcc/events',
+				Bucket: 'zfwartcc/events',
 				Key: req.file.filename,
 				Body: tmpFile,
 				ContentType: req.file.mimetype,
@@ -498,10 +498,10 @@ router.put('/:slug/notify', getUser, auth(['atm', 'datm', 'ec', 'wm']), async (r
 			await transporter.sendMail({
 				to: signup.user.email,
 				from: {
-					name: "Chicago ARTCC",
-					address: 'no-reply@zauartcc.org'
+					name: "Forth Worth ARTCC",
+					address: 'no-reply@zfwartcc.net'
 				},
-				subject: `Position Assignments for ${getSignups.name} | Chicago ARTCC`,
+				subject: `Position Assignments for ${getSignups.name} | Forth Worth ARTCC`,
 				template: 'event',
 				context: {
 					eventTitle: getSignups.name,

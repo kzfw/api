@@ -5,12 +5,12 @@ import path from 'path';
 const __dirname = path.resolve();
 
 const transport = nodemailer.createTransport({
-	host: "smtp.zoho.com",
+	host: "monday.mxrouting.net",
 	port: 587,
 	secure: false,
 	requireTLS: true,
 	auth: {
-		user: 'no-reply@zauartcc.org',
+		user: 'no-reply@zfwartcc.net',
 		pass: process.env.EMAIL_PASSWORD
 	},
 });
