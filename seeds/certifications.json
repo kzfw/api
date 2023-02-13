@@ -7,7 +7,7 @@
 },
 {
   "name": "Major Delivery",
-  "code": "orddel",
+  "code": "dfwdel",
   "order": 2,
   "class": "major",
   "facility": "del"
@@ -20,7 +20,7 @@
   "facility": "gnd"
 },{
   "name": "Major Ground",
-  "code": "ordgnd",
+  "code": "dfwgnd",
   "order": 4,
   "class": "major",
   "facility": "gnd"
@@ -32,7 +32,7 @@
   "facility": "twr"
 },{
   "name": "Major Tower",
-  "code": "ordtwr",
+  "code": "dfwtwr",
   "order": 6,
   "class": "major",
   "facility": "twr"
@@ -44,13 +44,13 @@
   "facility": "app"
 },{
   "name": "Major Approach",
-  "code": "ordapp",
+  "code": "dfwapp",
   "order": 8,
   "class": "major",
   "facility": "app"
 },{
   "name": "Chicago Center",
-  "code": "zau",
+  "code": "zfw",
   "order": 9,
   "class": "center",
   "facility": "ctr"
@@ -80,31 +80,31 @@
     "facility": "del"
 },{
     "name": "Major Approach Solo",
-    "code": "ordapps",
+    "code": "dfwapps",
     "order": 14,
     "class": "major",
     "facility": "app"
 },{
     "name": "Major Tower Solo",
-    "code": "ordtwrs",
+    "code": "dfwtwrs",
     "order": 15,
     "class": "major",
     "facility": "twr"
 },{
     "name": "Major Ground Solo",
-    "code": "ordgnds",
+    "code": "dfwgnds",
     "order": 16,
     "class": "major",
     "facility": "gnd"
 },{
     "name": "Major Delivery Solo",
-    "code": "orddels",
+    "code": "dfwdels",
     "order": 17,
     "class": "major",
     "facility": "del"
 },{
     "name": "Center Solo",
-    "code": "zaus",
+    "code": "zfws",
     "order": 18,
     "class": "center",
     "facility": "ctr"
