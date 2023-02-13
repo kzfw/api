@@ -31,10 +31,13 @@ export default transport;
 
 
 // organizational email list
-// atm@zauartcc.org
-// datm@zauartcc.org
-// ta@zauartcc.org
-// ec@zauartcc.org
-// webmaster@zauartcc.org //maybe do wm@zauartcc.org
-// fe@zauartcc.org
-// management@zauartcc.org
+// atm@zfwartcc.net
+// datm@zfwartcc.net
+// ta@zfwartcc.net
+// ec@zfwartcc.net
+// wm@zfwartcc.net
+// fe@zfwartcc.net
+// management@zfwartcc.net
+// training@zfwartcc.net
+// events@zfwartcc.net
+// webteam@zfwartcc.net
