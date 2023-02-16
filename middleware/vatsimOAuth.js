@@ -10,9 +10,9 @@ export default function (req, res, next) {
     process.env.VATSIM_AUTH_ENDPOINT + "/oauth/token";
 
   if (process.env.NODE_ENV === "beta") {
-    redirectUrl = "https://staging.zauartcc.org" + redirectUrl;
+    redirectUrl = "https://staging.zfwartcc.net" + redirectUrl;
   } else if (process.env.NODE_ENV === "prod") { //to test sentry change back to production.
-    redirectUrl = "https://zauartcc.org" + redirectUrl;
+    redirectUrl = "https://zfwartcc.net" + redirectUrl;
   } else {
     redirectUrl = "http://localhost:8080" + redirectUrl;
   }
