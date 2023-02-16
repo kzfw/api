@@ -135,7 +135,7 @@ router.get('/staff', async (req, res) => {
 			},
 			ins: {
 				title: "Instructors",
-				code: "instructors",
+				code: "training",
 				users: []
 			},
             ia: {
@@ -145,7 +145,7 @@ router.get('/staff', async (req, res) => {
             },
 			mtr: {
 				title: "Mentors",
-				code: "instructors",
+				code: "training",
 				users: []
 			},
 		};
