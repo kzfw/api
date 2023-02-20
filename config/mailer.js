@@ -6,7 +6,7 @@ const __dirname = path.resolve();
 
 const transport = nodemailer.createTransport({
 	host: "monday.mxrouting.net",
-	port: 587,
+	port: 465,
 	secure: false,
 	requireTLS: true,
 	auth: {
