@@ -1,9 +1,9 @@
-# Chicago ARTCC 2022  - API
+# Fort Worth ARTCC 2023  - API
 An Express app that provides data to UI 
 
 # License
 
-The Chicago ARTCC website is hereby released under the Creative Commons CC BY-NC-SA 4.0 license. Please ensure you are familiar with the license before contributing to this project. A couple of key takeaways:
+The Fort Worth ARTCC website is hereby released under the Creative Commons CC BY-NC-SA 4.0 license. Please ensure you are familiar with the license before contributing to this project. A couple of key takeaways:
 
 If you choose to share or alter this project, you MUST give credit to the contributors of this project.
 You may NOT use any of this project for commercial purposes.
@@ -47,12 +47,12 @@ In order to maintain consistent code, please adhere to the following guidelines:
 - When you have completed your updates, push them to your branch, and then open a merge request to `development` in GitLab.
 - Please follow the styleguide for how to format your code.
 - We recommend you use VSCode with at least the ESLint plugin installed and configured to auto-fix on save. ESLint can take care of a lot of little mistakes automatically.
-# Chicago ARTCC 2022  - API
+# Fort Worth ARTCC 2023  - API
 An Express app that provides data to UI 
 
 # License
 
-The Chicago ARTCC website is hereby released under the Creative Commons CC BY-NC-SA 4.0 license. Please ensure you are familiar with the license before contributing to this project. A couple of key takeaways:
+The Fort Worth ARTCC website is hereby released under the Creative Commons CC BY-NC-SA 4.0 license. Please ensure you are familiar with the license before contributing to this project. A couple of key takeaways:
 
 If you choose to share or alter this project, you MUST give credit to the contributors of this project.
 You may NOT use any of this project for commercial purposes.
