@@ -96,7 +96,7 @@ router.post('/request/new', getUser, async (req, res) => {
 				name: "Fort Worth ARTCC",
 				address: 'no-reply@zfwartcc.net'
 			},
-			subject: `New Training Request: ${student.fname} ${student.lname} | Fort Worth`,
+			subject: `New Training Request: ${student.fname} ${student.lname} | Fort Worth ARTCC`,
 			template: 'newRequest',
 			context: {
 				student: student.fname + ' ' + student.lname,
