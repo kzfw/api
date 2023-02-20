@@ -212,7 +212,7 @@ router.get('/activity', getUser, auth(['atm', 'datm', 'ta', 'wm']), async (req, 
 				totalRequests,
 				fiftyTime: Math.round(fiftyTime),
 				tooLow: totalTime < 3600 && (user.createdAt) < chkDate,
-				protected: user.isStaff || [1202744, 1190916, 1313538].includes(user.cid) || user.absence.some(a => !a.deleted && new Date(a.expirationDate) > new Date() && a.controller === user.cid)
+				protected: user.isStaff || [1202744, 1190916, 1313538, 1118012].includes(user.cid) || user.absence.some(a => !a.deleted && new Date(a.expirationDate) > new Date() && a.controller === user.cid)
 			}
 		}
 		res.stdRes.data = Object.values(userData);
