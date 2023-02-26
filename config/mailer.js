@@ -8,7 +8,6 @@ const transport = nodemailer.createTransport({
 	host: "monday.mxrouting.net",
 	port: 465,
 	secure: true,
-	requireTLS: true,
 	auth: {
 		user: 'no-reply@zfwartcc.net',
 		pass: process.env.EMAIL_PASSWORD
