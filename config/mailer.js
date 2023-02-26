@@ -7,7 +7,7 @@ const __dirname = path.resolve();
 const transport = nodemailer.createTransport({
 	host: "monday.mxrouting.net",
 	port: 465,
-	secure: false,
+	secure: true,
 	requireTLS: true,
 	auth: {
 		user: 'no-reply@zfwartcc.net',
