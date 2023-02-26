@@ -24,9 +24,9 @@ jobs:
         with:
           push: true
           tags: |
-            ghcr.io/vzauartcc/api:${{ github.sha }}
-            ghcr.io/vzauartcc/api:master
-            ghcr.io/vzauartcc/api:latest
+            ghcr.io/kzfw/api:${{ github.sha }}
+            ghcr.io/kzfw/api:master
+            ghcr.io/kzfw/api:latest
   Deploy-to-Staging:
     needs: Build-and-Push
     environment: staging
@@ -37,11 +37,11 @@ jobs:
         with:
           token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
       - name: Log into K8s cluster
-        run: doctl kubernetes cluster kubeconfig save --expiry-seconds 600 zau-k8s
+        run: doctl kubernetes cluster kubeconfig save --expiry-seconds 600 zfw-k8s
       - name: Deploy image to cluster
-        run: kubectl set image deployment/api-dev api-dev=ghcr.io/vzauartcc/api:${{ github.sha }} --record -n zau-staging-web-stack
+        run: kubectl set image deployment/api-dev api-dev=ghcr.io/kzfw/api:${{ github.sha }} --record -n zfw-staging-web-stack
       - name: Verify deployment
-        run: kubectl rollout status deployment/api-dev -n zau-staging-web-stack
+        run: kubectl rollout status deployment/api-dev -n zfw-staging-web-stack
   Deploy-to-Prod:
     needs: Deploy-to-Staging
     environment: prod
@@ -52,8 +52,8 @@ jobs:
         with:
           token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
       - name: Log into K8s cluster
-        run: doctl kubernetes cluster kubeconfig save --expiry-seconds 600 zau-k8s
+        run: doctl kubernetes cluster kubeconfig save --expiry-seconds 600 zfw-k8s
       - name: Deploy image to cluster
-        run: kubectl set image deployment/api api=ghcr.io/vzauartcc/api:${{ github.sha }} --record -n zau-web-stack
+        run: kubectl set image deployment/api api=ghcr.io/kzfw/api:${{ github.sha }} --record -n zfw-web-stack
       - name: Verify deployment
-        run: kubectl rollout status deployment/api -n zau-web-stack
+        run: kubectl rollout status deployment/api -n zfw-web-stack
