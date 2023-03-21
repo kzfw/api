@@ -220,6 +220,28 @@ router.delete('/request/:id', getUser, async (req, res) => {
 		req.app.Sentry.captureException(e);
 		res.stdRes.ret_det = e;
 	}
+	const student = await User.findOne({cid: request.studentCid}).select('fname lname email').lean();
+		const instructor = await User.findOne({cid: res.user.cid}).select('fname lname email').lean();
+
+		transporter.sendMail({
+			to: `${student.email}, ${instructor.email}`,
+			from: {
+				name: "Fort Worth ARTCC",
+				address: 'no-reply@zfwartcc.net'
+			},
+			subject: 'Training Request canceled | Fort Worth ARTCC',
+			template: 'student_cancel',
+			context: {
+				student: student.fname + ' ' + student.lname,
+				instructor: instructor.fname + ' ' + instructor.lname,
+				startTime: new Date(session.startTime).toLocaleString('en-US', {month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC', hour: '2-digit', minute: '2-digit', hourCycle: 'h23'}),
+				endTime: new Date(session.endTime).toLocaleString('en-US', {month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC', hour: '2-digit', minute: '2-digit', hourCycle: 'h23'})
+			}
+		});
+	} catch(e) {
+		req.app.Sentry.captureException(e);
+		res.stdRes.ret_det = e;
+	}
 
 	return res.json(res.stdRes);
 });
