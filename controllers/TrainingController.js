@@ -91,7 +91,7 @@ router.post('/request/new', getUser, async (req, res) => {
 		const milestone = await TrainingMilestone.findOne({code: req.body.milestone}).lean();
 
 		transporter.sendMail({
-			to: 'training@zfwartcc.net',
+			to: 'ta@zfwartcc.net',
 			from: {
 				name: "Fort Worth ARTCC",
 				address: 'no-reply@zfwartcc.net'
