@@ -12,7 +12,7 @@ export default function (req, res, next) {
   if (process.env.NODE_ENV === "beta") {
     redirectUrl = "https://staging.zfwartcc.net" + redirectUrl;
   } else if (process.env.NODE_ENV === "prod") { //to test sentry change back to production.
-    redirectUrl = "https://zfwartcc.net" + redirectUrl;
+    redirectUrl = "https://last.zfwartcc.net" + redirectUrl;
   } else {
     redirectUrl = "http://localhost:8080" + redirectUrl;
   }
